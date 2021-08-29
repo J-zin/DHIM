@@ -1,0 +1,15 @@
+1: Artist
+2: Company
+3: OfficeHolder
+4: Building
+5: Village
+6: Plant
+7: EducationalInstitution
+8: Animal
+9: Album
+10: WrittenWork
+11: NaturalPlace
+12: MeanOfTransportation
+13: Athlete
+14: Film
+#train: 50000 #val: 5000 #test: 5000 #cat: 14 #avglen: 47.13773174603175

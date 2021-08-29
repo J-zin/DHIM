@@ -1,0 +1,16 @@
+python main.py nyt16 ./data/nyt --train --cuda --seed 6863 --batch_size 16 --epochs 100 --lr 0.001 --encode_length 32 --max_length 400 --distance_metric hamming --num_retrieve 100 --num_bad_epochs 6 --clip 10.0 --alpha 0.3 --conv_out_dim 256 --beta 0.5 
+python main.py nyt32 ./data/nyt --train --cuda --seed 6863 --batch_size 32 --epochs 100 --lr 0.001 --encode_length 32 --max_length 400 --distance_metric hamming --num_retrieve 100 --num_bad_epochs 6 --clip 10.0 --alpha 0.3 --conv_out_dim 256 --beta 1.0 
+python main.py nyt64 ./data/nyt --train --cuda --seed 6863 --batch_size 64 --epochs 100 --lr 0.001 --encode_length 32 --max_length 400 --distance_metric hamming --num_retrieve 100 --num_bad_epochs 6 --clip 10.0 --alpha 0.7 --conv_out_dim 256 --beta 0.1 
+python main.py nyt128 ./data/nyt --train --cuda --seed 6863 --batch_size 128 --epochs 100 --lr 0.001 --encode_length 32 --max_length 400 --distance_metric hamming --num_retrieve 100 --num_bad_epochs 6 --clip 10.0 --alpha 0.1 --conv_out_dim 256 --beta 1.0 
+
+
+python main.py dbpedia16 ./data/dbpedia --train --seed 32236 --batch_size 32 --epochs 100 --lr 0.001 --encode_length 16 --cuda --max_length 50 --distance_metric hamming --num_retrieve 100 --num_bad_epochs 6 --clip 10.0 --alpha 0.3 --conv_out_dim 256 --beta 0.5
+python main.py dbpedia32 ./data/dbpedia --train --seed 32236 --batch_size 512 --epochs 100 --lr 0.001 --encode_length 32 --cuda --max_length 50 --distance_metric hamming --num_retrieve 100 --num_bad_epochs 6 --clip 10.0 --alpha 0.1 --conv_out_dim 256 --beta 0.4 
+python main.py dbpedia64 ./data/dbpedia --train --seed 32236 --batch_size 512 --epochs 100 --lr 0.001 --encode_length 64 --cuda --max_length 50 --distance_metric hamming --num_retrieve 100 --num_bad_epochs 6 --clip 10.0 --alpha 0.1 --conv_out_dim 256 --beta 0.1  
+python main.py dbpedia128 ./data/dbpedia --train --seed 32236 --batch_size 128 --epochs 100 --lr 0.0001 --encode_length 128 --cuda --max_length 50 --distance_metric hamming --num_retrieve 100 --num_bad_epochs 6 --clip 10.0 --alpha 0.1 --conv_out_dim 256 --beta 0.9 
+
+
+python main.py agnews16 ./data/agnews --train --cuda --seed 80266 --batch_size 64 --epochs 100 --lr 0.001 --encode_length 16 --max_length 50 --distance_metric hamming --num_retrieve 100 --num_bad_epochs 6 --clip 10.0 --alpha 0.5 --conv_out_dim 256 --beta 0.1   
+python main.py agnews32 ./data/agnews --train --cuda --seed 80266 --batch_size 128 --epochs 100 --lr 0.001 --encode_length 32 --max_length 50 --distance_metric hamming --num_retrieve 100 --num_bad_epochs 6 --clip 10.0 --alpha 0.2 --conv_out_dim 256 --beta 0.3  
+python main.py agnews64 ./data/agnews --train --cuda --seed 80266 --batch_size 64 --epochs 100 --lr 1e-06 --encode_length 64 --max_length 50 --distance_metric hamming --num_retrieve 100 --num_bad_epochs 6 --clip 10.0 --alpha 0.1 --conv_out_dim 256 --beta 0.4   
+python main.py agnews128 ./data/agnews --train --cuda --seed 80266 --batch_size 256 --epochs 100 --lr 0.000001 --encode_length 128 --max_length 50 --distance_metric hamming --num_retrieve 100 --num_bad_epochs 6 --clip 10.0 --alpha 0.1 --conv_out_dim 256 --beta 0.1 

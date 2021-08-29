@@ -1,0 +1,27 @@
+1: dance
+2: immigration
+3: gun_control
+4: abortion
+5: economy
+6: tennis
+7: football
+8: basketball
+9: movies
+10: federal_budget
+11: international_business
+12: military
+13: stocks_and_bonds
+14: law_enforcement
+15: golf
+16: baseball
+17: environment
+18: energy_companies
+19: hockey
+20: television
+21: cosmos
+22: soccer
+23: surveillance
+24: the_affordable_care_act
+25: music
+26: gay_rights
+#train: 9221 #val: 1152 #test: 1154 #cat: 26 #avglen: 648.1270061594518
