@@ -1,6 +1,6 @@
 # DHIM
 
-The Pytorch implementation of paper "Refining BERT Embeddings for Document Hashing via Mutual Information Maximization" (EMNLP 2021). The code of baselines is available at [https://github.com/J-zin/Semantic-Hashing-Models](https://github.com/J-zin/Semantic-Hashing-Models).
+The Pytorch implementation of paper "Refining BERT Embeddings for Document Hashing via Mutual Information Maximization" (EMNLP 2021). The code of baselines is available at [this link](https://github.com/J-zin/Semantic-Hashing-Models).
 
 ### Main Dependencies
 
