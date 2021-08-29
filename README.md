@@ -9,7 +9,7 @@ The Pytorch implementation of paper "Refining BERT Embeddings for Document Hashi
 
 ### Pre-trained model Download
 
-We implement our model in [HugginFace AIP](https://huggingface.co/). Please download the BERT-based model from [this link](https://huggingface.co/bert-base-uncased/tree/main) and put it at `./model/bert-base-uncased/`.
+We implement our model in [HugginFace AIP](https://huggingface.co/). Please download the BERT-based model from [this link](https://huggingface.co/bert-base-uncased/tree/main) and put it at `./model/bert-base-uncased/`. The code of baselines is available at [https://github.com/J-zin/Semantic-Hashing-Models](https://github.com/J-zin/Semantic-Hashing-Models).
 
 ### How to Run
 
