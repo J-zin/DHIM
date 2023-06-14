@@ -85,7 +85,7 @@ class Base_Model(nn.Module):
         logger.log('%d params' % sum([p.numel() for p in self.parameters()]))
         logger.log('hparams: %s' % self.flag_hparams())
         
-        device = torch.device('cuda' if self.hparams.cuda else 'cpu')
+        device = torch.device(self.hparams.device if self.hparams.device else 'cpu')
         self.to(device)
 
         optimizer = self.configure_optimizers()
@@ -167,7 +167,7 @@ class Base_Model(nn.Module):
         return perf
 
     def run_test(self):
-        device = torch.device('cuda' if self.hparams.cuda else 'cpu')
+        device = torch.device(self.hparams.device if self.hparams.device else 'cpu')
         _, database_loader, val_loader, test_loader = self.data.get_loaders(
             self.hparams.batch_size, self.hparams.num_workers,
             shuffle_train=True, get_test=True)
@@ -177,7 +177,7 @@ class Base_Model(nn.Module):
 
     def run_retrieval_case_study(self):
         self.eval()
-        device = torch.device('cuda' if self.hparams.cuda else 'cpu')
+        device = torch.device(self.hparams.device if self.hparams.device else 'cpu')
         _, database_loader, val_loader, test_loader = self.data.get_loaders(
             self.hparams.batch_size, self.hparams.num_workers,
             shuffle_train=True, get_test=True)
@@ -219,7 +219,7 @@ class Base_Model(nn.Module):
 
     def hash_code_visualization(self):
         self.eval()
-        device = torch.device('cuda' if self.hparams.cuda else 'cpu')
+        device = torch.device(self.hparams.device if self.hparams.device else 'cpu')
         _, database_loader, _, _ = self.data.get_loaders(
             self.hparams.batch_size, self.hparams.num_workers,
             shuffle_train=True, get_test=True)
@@ -255,12 +255,12 @@ class Base_Model(nn.Module):
         plt.savefig('DHIM_hash_codes_visulization_{:d}bits.pdf'.format(self.hparams.encode_length), bbox_inches='tight', pad_inches=0.0)
 
     def load(self):
-        device = torch.device('cuda' if self.hparams.cuda else 'cpu')
-        checkpoint = torch.load(self.hparams.model_path) if self.hparams.cuda \
+        device = torch.device(self.hparams.device if self.hparams.device else 'cpu')
+        checkpoint = torch.load(self.hparams.model_path) if self.hparams.device \
                      else torch.load(self.hparams.model_path,
                                      map_location=torch.device('cpu'))
-        if checkpoint['hparams'].cuda and not self.hparams.cuda:
-            checkpoint['hparams'].cuda = False
+        if checkpoint['hparams'].device and not self.hparams.device:
+            checkpoint['hparams'].device = None
         self.hparams = checkpoint['hparams']
         self.define_parameters()
         self.load_state_dict(checkpoint['state_dict'])
@@ -314,8 +314,8 @@ class Base_Model(nn.Module):
                             help = "Number of bits of the hash code [%(default)d]")
         
 
-        parser.add_argument('--cuda', action='store_true',
-                            help='use CUDA?')
+        parser.add_argument('--device', type=str,
+                            help='device')
         parser.add_argument('--num_workers', type=int, default=8,
                             help='num dataloader workers [%(default)d]')
         parser.add_argument('--max_length', type=int, default=200,
