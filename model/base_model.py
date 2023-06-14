@@ -186,7 +186,7 @@ class Base_Model(nn.Module):
             encoding_chunks = []
             label_chunks = []
             for (docs, labels) in loader:
-                docs = squeeze_dim(move_to_device(docs, device), dim=1)
+                docs = squeeze_dim(move_to_device(docs.data, device), dim=1)
                 encoding_chunks.append(docs if self.encode_discrete is None else
                                    self.encode_discrete(docs))
                 label_chunks.append(labels)
