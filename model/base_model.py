@@ -105,7 +105,7 @@ class Base_Model(nn.Module):
                     # print(batch_num, len(train_loader))
                     optimizer.zero_grad()
 
-                    inputs = squeeze_dim(move_to_device(batch[0], device), dim=1)
+                    inputs = squeeze_dim(move_to_device(batch[0].data, device), dim=1)
                     forward = self.forward(inputs)
                     
                     for key in forward:
