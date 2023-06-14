@@ -98,7 +98,7 @@ class DHIM(Base_Model):
             encoding_chunks = []
             label_chunks = []
             for (docs, labels) in loader:
-                docs = squeeze_dim(move_to_device(docs, device), dim=1)
+                docs = squeeze_dim(move_to_device(docs.data, device), dim=1)
                 encoding_chunks.append(docs if self.encode_continuous is None else
                                    self.encode_continuous(docs))
                 label_chunks.append(labels)

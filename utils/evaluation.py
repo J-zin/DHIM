@@ -10,7 +10,7 @@ def compute_retrieval_precision(train_loader, eval_loader, device,
         encoding_chunks = []
         label_chunks = []
         for (docs, labels) in loader:
-            docs = squeeze_dim(move_to_device(docs, device), dim=1)
+            docs = squeeze_dim(move_to_device(docs.data, device), dim=1)
             encoding_chunks.append(docs if encode_discrete is None else
                                    encode_discrete(docs))
             label_chunks.append(labels)
